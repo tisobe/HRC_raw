@@ -1,0 +1,34 @@
+
+############################
+Extracting HRC ENG Raw Data
+############################
+
+Scripts:
+========
+
+extract_hrc_eng_wrap_script
+extract_hrc_eng_main_script
+    -- environment setting script to extract_hrc_eng_file.py
+
+extract_hrc_eng_file.py
+    -- find the last processed date and extract data after that date
+       the extracted data are combined at a day unit.
+       Input: col_calc.lis  --- column name list with value modification instructions
+       Output:  hrc_eng4_<yyyy><mm><dd>.fits.gz
+                hrc_eng5_<yyyy><mm><dd>.fits.gz
+                shield_a_stats.rdb: keep stats of shield_a
+                mcptot_a_stats.rdb: keep stats of mcptot_a
+
+Directory:
+==========
+
+/data/aschrc1/GENHRC/TOOLS/HRC_ENG: this directory saves all scripts. Also run the scripts
+
+/data/aschrc1/GENHRC/RAW/HRC_ENG:   the data directory which saves all data.
+
+
+Cronjob:
+========
+cron job is run by isobe on r2d2-v:
+
+19 3 * * * cd /data/aschrc1/GENHRC/TOOLS/HRC_ENG; /data/aschrc1/GENHRC/TOOLS/HRC_ENG/extract_hrc_eng_wrap_script
