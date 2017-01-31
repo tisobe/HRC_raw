@@ -19,6 +19,10 @@ extract_hrc_eng_file.py
                 shield_a_stats.rdb: keep stats of shield_a
                 mcptot_a_stats.rdb: keep stats of mcptot_a
 
+save_proccessed_data.py
+    --- move the data into sub-directory such as :
+                /data/aschrc1/GENHRC/RAW/HRC_HK0/2016
+
 Directory:
 ==========
 
@@ -32,3 +36,12 @@ Cronjob:
 cron job is run by isobe on r2d2-v:
 
 19 3 * * * cd /data/aschrc1/GENHRC/TOOLS/HRC_ENG; /data/aschrc1/GENHRC/TOOLS/HRC_ENG/extract_hrc_eng_wrap_script
+
+23 4 6 * * cd /data/aschrc1/GENHRC/TOOLS/HRC_ENG; /data/aschrc1/GENHRC/TOOLS/HRC_ENG/save_proccessed_data.py 
+
+
+
+Note:
+Remove daily fits file from the older sub directory at the turn of year. Probably they are
+not needed beyond current month, but keep for the last few years as a backup.
+
